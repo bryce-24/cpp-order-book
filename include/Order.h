@@ -13,6 +13,7 @@ class Order {
         Quantity getQuantity() const;
         Quantity getRemainingQuantity() const;
         Time_t getTimestamp() const;
+        void reduceRemaining(Quantity qty);
         
 
     private:

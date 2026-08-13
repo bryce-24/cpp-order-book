@@ -7,8 +7,11 @@
 
 class PriceLevel {
     public:
+        explicit PriceLevel(Price price);
         void add(OrderId orderId);
         void remove(OrderId orderId);
+        Price getPrice() const;
+        const std::deque<OrderId>& getOrderIds() const;
         
     private:
         Price price_;

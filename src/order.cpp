@@ -21,12 +21,16 @@ Quantity Order::getQuantity() const { return quantity_; }
 Quantity Order::getRemainingQuantity() const { return remainingQuantity_; }
 Time_t Order::getTimestamp() const { return timestamp_; }
 
+void Order::reduceRemaining(Quantity qty) {
+    if (qty >= remainingQuantity_) {
+        remainingQuantity_ = 0;
+    } else {
+        remainingQuantity_ -= qty;
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const Order& order) {
     os << "Order ID: " << order.getOrderId() << '\n';
-    os << "Side: "
-       << (order.getSide() == Side::BUY ? "BUY" : "SELL")
-       << '\n';
-    os << "Price: " << order.getPrice() << '\n';
     os << "Quantity: " << order.getQuantity() << '\n';
     Time_t timestamp = order.getTimestamp();
     os << "Time: " << std::ctime(&timestamp);

@@ -9,6 +9,7 @@ add_executable(OrderBook
     src/main.cpp
     src/Order.cpp
     src/OrderBook.cpp
+    src/PriceLevel.cpp
 )
 
 target_include_directories(OrderBook PRIVATE

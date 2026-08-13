@@ -16,7 +16,7 @@ public:
 
 private:
     std::map<Price, std::deque<OrderId>, std::greater<Price>> bids_;
-    std::map<Price, std::deque<OrderId>> asks_;
+    std::map<Price, std::deque<OrderId>, std::greater<Price>> asks_;
 
     std::unordered_map<OrderId, Order> orders_;
 };
